@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Play - Positioning Strategy Game</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .doc { max-width: 980px; margin: 0 auto; }
+  .doc section { margin-bottom: 18px; }
+  .doc p, .doc li { color: #d3dcec; }
+  .doc h2 { margin-top: 4px; }
+  .doc h3 { margin-top: 16px; color: #bae6fd; }
+  .toc { columns: 2; column-gap: 30px; padding-left: 18px; margin: 0; }
+  .toc li { margin: 2px 0; }
+  .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #0b1427; border: 1px solid var(--line2); border-radius: 10px; padding: 10px 14px; margin: 8px 0; color: #e0f2fe; overflow-x: auto; white-space: pre; font-size: .88rem; }
+  .ex { border-left: 3px solid var(--accent); background: #0c1d33; border-radius: 0 10px 10px 0; padding: 10px 14px; margin: 10px 0; }
+  .ex b { color: #fff; }
+  table.grid10 td, table.grid10 th { text-align: center; padding: 6px 4px; font-variant-numeric: tabular-nums; font-size: .82rem; }
+  table.grid10 td.s { outline: 2px solid #fff; outline-offset: -2px; font-weight: 800; }
+  .kbd { display: inline-block; padding: 1px 7px; border-radius: 6px; border: 1px solid var(--line2); background: #0b1427; font-size: .85rem; }
+  @media (max-width: 640px) { .toc { columns: 1; } }
+  @media print { body { background: #fff; color: #000; } .topbar { display: none; } .card { box-shadow: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><span class="logo">🎯</span><span>Positioning Strategy Game</span></a>
+  <span class="spacer"></span>
+  <a class="btn sm" href="/">Play →</a>
+</header>
+<main class="doc">
+
+<section class="card">
+  <h1>How to Play: complete guide &amp; game logic</h1>
+  <p class="muted">Marketing and Positioning Simulation Game, multiplayer edition. Based on the positioning game designed by Geoff Fripp, with this edition's house rules (marked <span class="plan-tag withdraw">HOUSE RULE</span>).</p>
+  <ol class="toc">
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#quick">Quick start</a></li>
+    <li><a href="#market">The market &amp; segments</a></li>
+    <li><a href="#decisions">Your decisions each round</a></li>
+    <li><a href="#costs">Positioning costs</a></li>
+    <li><a href="#sales">How sales are calculated</a></li>
+    <li><a href="#loyalty">Loyalty bonus</a></li>
+    <li><a href="#withdraw">Withdrawing a product: double penalty</a></li>
+    <li><a href="#profit">Profit, budget &amp; winning</a></li>
+    <li><a href="#flow">How a round works</a></li>
+    <li><a href="#results">Reading the results</a></li>
+    <li><a href="#privacy">What other teams can see</a></li>
+    <li><a href="#strategy">Strategy tips</a></li>
+    <li><a href="#facilitator">Facilitator guide</a></li>
+    <li><a href="#logic">Complete game logic (formulas)</a></li>
+    <li><a href="#faq">FAQ &amp; troubleshooting</a></li>
+  </ol>
+</section>
+
+<section class="card" id="objective">
+  <h2>1. Objective</h2>
+  <p>Make the most money (points). Your team is the marketing department of a firm, and you are paid to maximise profit. The winner is the team with the <b>highest accumulated profit after the final round</b> (8 rounds by default).</p>
+  <div class="formula">Accumulated profit = 5,000 starting points + Σ (sales − positioning costs − penalties) over all rounds</div>
+  <p>The game looks simple, but like any strategy game it rewards understanding competitor behaviour and the payback (ROI) on marketing investment.</p>
+</section>
+
+<section class="card" id="quick">
+  <h2>2. Quick start</h2>
+  <div class="grid cols-2">
+    <div>
+      <h3>Teams (players)</h3>
+      <ol>
+        <li>Open the link your facilitator shares, or go to the home page and type the <b>6-character game code</b>.</li>
+        <li>Enter a <b>team name</b> and a <b>team PIN</b>. Teammates on other laptops enter the same name and PIN to join the same team.</li>
+        <li>Wait in the lobby until the facilitator starts round 1.</li>
+        <li>Each round: plan at least one move on the map, check the cost, and click <span class="kbd">Submit</span>.</li>
+        <li>Watch the market simulation, study the results, and get ready for the next round.</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Facilitator</h3>
+      <ol>
+        <li>Home → <b>Host a game</b>. Choose a PIN, rounds, timers and options.</li>
+        <li>Share the team link (or code) shown in the console. Open the <b>📺 Projector view</b> on the classroom screen.</li>
+        <li>When the teams have joined, click <span class="kbd">Start round 1</span>.</li>
+        <li>Rounds process automatically once everyone has submitted, or you can click <span class="kbd">Process round</span>.</li>
+        <li>Click <span class="kbd">Open round N</span> after each results screen. After round 8, click <span class="kbd">Reveal final leaderboard</span>.</li>
+      </ol>
+    </div>
+  </div>
+  <p class="small muted">No account or app is needed. The game runs in any modern browser on laptops, tablets and phones.</p>
+</section>
+
+<section class="card" id="market">
+  <h2>3. The market: perceptual map &amp; segments</h2>
+  <p>Consumers choose mainly on two attributes: <b>quality</b> (columns 1→10, left to right) and <b>style/look</b> (rows J→A, bottom to top). Each cell holds a fixed amount of <b>market demand</b> (points of sales available per round). Think clothing, shoes, furniture or accessories.</p>
+  <div id="demand-map"></div>
+  <h3>The four key segments (demand peaks)</h3>
+  <ul>
+    <li><b>A10: Status Seekers (1,500).</b> Best quality and best style, and happy to pay for it. The largest segment, with attractive neighbouring cells (A9 1,000, B10 1,000). Also the most expensive to reach and potentially the most crowded: it can become a <i>profit trap</i>.</li>
+    <li><b>D3: Fashion Conscious (800).</b> Want good-looking, socially acceptable products and will give up some quality to pay less.</li>
+    <li><b>H3: Budget Conscious (1,000).</b> Accept lower quality and basic style for an affordable product. Close to START, so cheap to reach.</li>
+    <li><b>I8: Quality Focused (800).</b> Want high quality and care less about style or fashion.</li>
+  </ul>
+  <p><b>J1 is START</b>: the free, basic generic product with no demand. Every product is developed from J1, and products in J1 sell nothing.</p>
+  <p class="muted small">Tip: avoid choosing cells on gut feel. Compare profit opportunity, cost to reach, payback time, and what competitors are likely to do.</p>
+</section>
+
+<section class="card" id="decisions">
+  <h2>4. Your decisions each round</h2>
+  <p>Every round, your team can take any combination of these actions:</p>
+  <table>
+    <thead><tr><th>Action</th><th>What it does</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>🚀 <b>Launch</b> a new product</td><td>Develops a new product from START (J1) and positions it in any cell except J1.</td><td>200 × cells from J1</td></tr>
+      <tr><td>↔️ <b>Reposition</b> an existing product</td><td>Moves one of your products to another cell. You can move several cells in one round. Its loyalty bonus resets to 0.</td><td>200 × cells moved</td></tr>
+      <tr><td>🛡️ <b>Hold</b> a product</td><td>Leave it where it is. It builds loyalty (+10% compounding). Holding by itself does not count as a move.</td><td>Free</td></tr>
+      <tr><td>✕ <b>Withdraw</b> a product</td><td>Permanently removes it from the market (see section 8).</td><td>Double penalty</td></tr>
+    </tbody>
+  </table>
+  <h3>Rules</h3>
+  <ul>
+    <li><span class="plan-tag withdraw">HOUSE RULE</span> <b>At least one move is compulsory every round</b> (launch, reposition or withdraw). You cannot submit "no move". The only exception: if your budget is below 200, no move is affordable, so you may submit without one.</li>
+    <li><span class="plan-tag withdraw">HOUSE RULE</span> <b>A launched product cannot be removed or deleted</b>. It stays in your portfolio for the rest of the game. The only way out is a formal withdrawal with the double penalty. Before you submit, you can still cancel a <i>planned</i> launch freely, because it has not been launched yet.</li>
+    <li><b>Maximum 20 products per team</b> over the whole game. Withdrawn products still use up a slot.</li>
+    <li><b>Total cost this round ≤ your budget</b>, where your budget is your accumulated profit. In round 1 that is 5,000.</li>
+    <li>Moves are <b>horizontal or vertical only</b>, never diagonal. Cost is the number of cells moved, even when you <i>reduce</i> quality or style, because you must redesign the product and re-educate the market.</li>
+    <li>You can change your plan, and even unlock a submitted decision with <span class="kbd">Edit decision</span>, until the round is processed.</li>
+    <li>Product numbers (#1, #2…) are fixed automatically. Unlike the paper decision sheet, you can't be charged by mistake for listing products in a different order.</li>
+  </ul>
+  <h3>Using the decision screen</h3>
+  <ul>
+    <li>Click <span class="kbd">🚀 Launch new product</span>, then click a cell on the map. You can also click any empty cell directly.</li>
+    <li>Click one of your product chips on the map, or <span class="kbd">Move</span> in the list, then click the target cell. Click its current cell to cancel.</li>
+    <li>Hover over any cell to see its demand, how many products were there last round, the cost to reach it, and an estimate of your sales if you enter.</li>
+    <li>The panel on the right shows your budget, the cost of this round and what remains. <span class="kbd">Submit</span> stays disabled until the decision is valid.</li>
+    <li>Your plan autosaves, so teammates on other laptops see the same plan.</li>
+  </ul>
+</section>
+
+<section class="card" id="costs">
+  <h2>5. Positioning costs (200 points per cell)</h2>
+  <div class="formula">Launch cost      = 200 × ( |row − J| + |column − 1| )
+Reposition cost  = 200 × ( |row change| + |column change| )</div>
+  <p>Cost to launch a brand-new product in each cell (distance from J1 × 200):</p>
+  <div id="launch-map"></div>
+  <div class="ex"><b>Example: launch in H3 (Budget Conscious).</b> Up 2 rows (J→H) and across 2 columns (1→3) = 4 cells × 200 = <b>800</b>. The cell has 1,000 demand, so if you are alone there it pays back in round 1.</div>
+  <div class="ex"><b>Example: reposition D7 → A10.</b> Up 3 rows and across 3 columns = 6 cells × 200 = <b>1,200</b>.</div>
+  <div class="ex"><b>Example: launch in A10 (Status Seekers).</b> 9 rows + 9 columns = 18 cells × 200 = <b>3,600</b>. Alone, it earns 1,500 in its first round, 1,650 in the next (with loyalty), and so on. If 3 teams pile in, each earns only 500, and payback takes 7 or more rounds.</div>
+</section>
+
+<section class="card" id="sales">
+  <h2>6. How sales are calculated</h2>
+  <p>The demand of a cell is <b>shared equally</b> between all products positioned there (from all teams, including your own), then the product's loyalty bonus is added:</p>
+  <div class="formula">Sales of a product = ( Cell demand ÷ number of products in that cell ) × ( 1 + loyalty bonus )</div>
+  <ul>
+    <li>Alone in a 1,000-point cell: <b>1,000</b>.</li>
+    <li>Two products in a 1,000-point cell: <b>500 each</b>. Five products: <b>200 each</b>.</li>
+    <li>Two of <i>your own</i> products in the same 1,000-point cell with no competitors: 500 each, 1,000 in total. The second product earns nothing extra, but it makes the cell much less attractive to competitors, who would only get a third. This is a <b>blocking</b> strategy.</li>
+  </ul>
+  <p>Sales are rounded to whole points. Team sales are the sum of all your products' sales.</p>
+</section>
+
+<section class="card" id="loyalty">
+  <h2>7. The loyalty &amp; price-premium bonus (10% compounding)</h2>
+  <p>Products that stay in the same cell build customer loyalty, purchase frequency and price premium. For every consecutive round a product is <b>held</b> (not launched, not moved), its bonus compounds at 10%:</p>
+  <div class="formula">Loyalty bonus = 1.10 ^ (rounds held in a row) − 1</div>
+  <div id="loyalty-table"></div>
+  <ul>
+    <li>A product's first round (new launch) and any round in which it is <b>repositioned</b> has a 0% bonus. The count restarts from zero.</li>
+    <li>The bonus applies to the product's equal share of the cell. When a competitor enters your cell, your share halves but you keep your bonus multiplier, so established products still out-sell newcomers.</li>
+  </ul>
+  <div class="ex"><b>Example.</b> Your product is alone in a 500-point cell.<br>
+    Round 1 (new): 500 × 1.00 = <b>500</b><br>
+    Round 2 (held 1): 500 × 1.10 = <b>550</b><br>
+    Round 3 (held 2), and a competitor enters: (500 ÷ 2) × 1.21 = <b>303</b> for you, while the newcomer earns 250 × 1.00 = <b>250</b>.</div>
+  <p class="small muted">This is the 2020 version of the rule (10% compounding, reaching about 95% by round 8), which replaced the older 20% bonus because that rewarded inactive teams too much.</p>
+</section>
+
+<section class="card" id="withdraw">
+  <h2>8. Withdrawing a product: the double penalty <span class="plan-tag withdraw">HOUSE RULE</span></h2>
+  <p>Launched products cannot be deleted. If you formally <b>withdraw</b> one, you pay a <b>double penalty</b>:</p>
+  <div class="formula">Lifetime P/L of product = lifetime sales − lifetime positioning costs (launch + every move)
+
+If the product is loss-making (lifetime P/L &lt; 0):
+    Penalty = 2 × lifetime loss          ← the loss is deducted twice
+Otherwise:
+    Penalty = 2 × (200 × cells back to J1)  ← double the original sheet's withdrawal cost</div>
+  <div class="ex"><b>Loss-making example.</b> Product #2 was launched in A10 for 3,600. It earned 750 and then 825 (shared with a rival), so lifetime sales are 1,575 and the lifetime loss is 2,025. Withdrawing it costs <b>2 × 2,025 = 4,050</b>.</div>
+  <div class="ex"><b>Profitable example.</b> Product #1 is in H3. It cost 800 and has earned 3,000. It is not loss-making, so the penalty is 2 × (4 cells × 200) = <b>1,600</b>.</div>
+  <ul>
+    <li>The penalty counts toward your round's total cost and must fit within your budget.</li>
+    <li>A withdrawal counts as your compulsory move for the round.</li>
+    <li>The slot stays used (it still counts toward the 20-product limit), and the product earns nothing from the round it is withdrawn.</li>
+    <li>The decision screen shows the exact penalty and asks you to confirm before it is added to your plan.</li>
+    <li>Repositioning a weak product is almost always cheaper than withdrawing it.</li>
+  </ul>
+</section>
+
+<section class="card" id="profit">
+  <h2>9. Profit, budget &amp; winning</h2>
+  <div class="formula">Round costs        = positioning costs + withdrawal penalties
+Round net profit   = round sales − round costs
+Accumulated profit = previous accumulated profit + round net profit   (starts at 5,000)
+Next round budget  = accumulated profit</div>
+  <ul>
+    <li>Spending is limited to your accumulated profit, so your accumulated profit can never fall below zero.</li>
+    <li>Investment needs payback. Near the end of the game there are fewer rounds left to recover a launch or a move, so a 3,600 launch in round 7 rarely pays off.</li>
+    <li>Teams are ranked each round by net profit and by accumulated profit. Equal values share a rank.</li>
+    <li><b>The team with the highest accumulated profit after the final round wins.</b></li>
+  </ul>
+</section>
+
+<section class="card" id="flow">
+  <h2>10. How a round works</h2>
+  <ol>
+    <li><b>Lobby.</b> Teams join with the link or code. The facilitator starts round 1.</li>
+    <li><b>Decision phase.</b> Every team plans and submits privately. You see which teams have submitted (✓) but never what they chose. If the facilitator set a timer, a countdown appears; when it hits zero the round is processed.</li>
+    <li><b>Processing.</b> The server applies every team's moves at the same time, counts the products in each cell, calculates sales with loyalty bonuses, deducts costs and penalties, and ranks the teams.</li>
+    <li><b>Results.</b> Every laptop plays the market simulation and then shows the round results, leaderboard, charts, market map and news ticker.</li>
+    <li>The facilitator (or the results timer) opens the <b>next round</b>. This repeats until round 8.</li>
+    <li><b>Final leaderboard.</b> After round 8 the facilitator reveals the podium and full ranking. Every round's results stay available.</li>
+  </ol>
+  <p><b>Missed submission:</b> if a team has not submitted when the round is processed (timer or facilitator), its products stay where they are with no move and no cost. Its held products still earn and build loyalty. The results mark that team as "no submission".</p>
+  <p><b>Reliability:</b> the server stores every round, so a refresh, a closed lid or a dropped Wi-Fi connection never loses progress. Open the link again and you are back where you were.</p>
+</section>
+
+<section class="card" id="results">
+  <h2>11. Reading the results screen</h2>
+  <ul>
+    <li><b>Your KPIs:</b> sales, market share, costs, net profit, accumulated profit and overall rank, with the change since last round.</li>
+    <li><b>Market news ticker:</b> leader changes, big climbers, crowded or empty segments, and the best-selling product.</li>
+    <li><b>Leaderboard:</b> every team's sales, share, best product, costs, net profit, accumulated profit and number of products, plus the total market and the average team.</li>
+    <li><b>Charts</b> (each team in its own colour): accumulated profit (the key metric), sales per round, profit per round and market share. Hover over a chart to see exact values.</li>
+    <li><b>Competitive map:</b> where every product sits, shown as team-coloured dots, plus the most contested cells. On the next decision screen, the <span style="color:#fde68a">×n</span> badges show how many products each cell held last round.</li>
+    <li><b>Your products:</b> for each product, its status (new, repositioned or held), the number of products in its cell, its equal share, its loyalty bonus, its sales and its cost this round.</li>
+    <li><b>Top 10 products</b> and <b>product sales by team</b>: spot the winners to attack, and the products of yours to protect.</li>
+    <li><b>My portfolio</b> tab: each product's full path, lifetime sales, cost and P/L, and your private decision history.</li>
+  </ul>
+</section>
+
+<section class="card" id="privacy">
+  <h2>12. What other teams can and cannot see</h2>
+  <div class="grid cols-2">
+    <div><h3>Private to your team</h3><ul><li>Your plan and decision while the round is open</li><li>Your list of actions and their individual costs</li><li>Your decision history</li><li>Your team PIN</li></ul></div>
+    <div><h3>Public after each round</h3><ul><li>Whether a team has submitted (not what they chose)</li><li>Each team's sales, costs, profit, accumulated profit and rank</li><li>Market results by cell: product counts and, if the facilitator enabled it (the default, as in the original game), each product's cell and sales</li></ul></div>
+  </div>
+  <p class="small muted">The server enforces this. Another team's browser never receives your decisions, so they can't be found even with developer tools. Only the facilitator can see decisions during a round.</p>
+</section>
+
+<section class="card" id="strategy">
+  <h2>13. Strategy tips</h2>
+  <ul>
+    <li><b>Think in ROI and payback.</b> Payback in rounds ≈ cost ÷ expected sales per round. Early rounds give the most time to recover big investments.</li>
+    <li><b>Cheap segments near START</b> (H3, G3, I8) can return their cost in a single round when they are uncontested.</li>
+    <li><b>Beware the profit trap.</b> A10 is huge, but if four teams go there each gets 375 a round for a 3,600 investment.</li>
+    <li><b>Predict competitors.</b> Use the ×n badges, the leaderboard and the top 10 list to work out where rivals will move next.</li>
+    <li><b>Protect your stars.</b> Held products compound loyalty, and a second product in the same cell can deter entrants.</li>
+    <li><b>Reposition, don't withdraw.</b> Moving a weak product one or two cells to an empty neighbour usually beats paying the double penalty.</li>
+    <li><b>The compulsory move</b> can be cheap: a single 200-point move or a cheap launch into an empty low-cost cell still counts.</li>
+    <li><b>Late game:</b> in rounds 7 and 8, favour moves that pay back within the remaining rounds.</li>
+  </ul>
+</section>
+
+<section class="card" id="facilitator">
+  <h2>14. Facilitator guide</h2>
+  <h3>Creating a game</h3>
+  <ul>
+    <li><b>Facilitator PIN:</b> needed to reopen the console from another device. Keep it secret.</li>
+    <li><b>Rounds</b> (1–8) and <b>maximum teams</b> (1–10).</li>
+    <li><b>Decision timer:</b> optional countdown per round. When it ends, the round is processed automatically.</li>
+    <li><b>Results timer:</b> optional. Opens the next round automatically after N minutes of results. Set it to 0 to control the pace yourself.</li>
+    <li><b>Auto-process:</b> calculates the round as soon as every team has submitted.</li>
+    <li><b>Show competitors' positions:</b> on by default, as in the original game. Turn it off for a harder, lower-information game; teams then see only totals and cell counts.</li>
+  </ul>
+  <h3>During the game</h3>
+  <ul>
+    <li>The console shows who is online, who has submitted, and every team's decision (visible only to you).</li>
+    <li><span class="kbd">+1 min</span>, <span class="kbd">5:00</span> and <span class="kbd">Stop timer</span> control the countdown for the current phase.</li>
+    <li><span class="kbd">Process round</span> calculates the round now. Teams that have not submitted hold their products.</li>
+    <li><span class="kbd">Open round N</span> starts the next decision phase. After the last round, <span class="kbd">Reveal final leaderboard</span> ends the game.</li>
+    <li><b>Reset PIN</b> (in the lobby list) helps a team that forgot its PIN.</li>
+    <li><b>⚙️ Settings</b> lets you change timers and options mid-game.</li>
+    <li><b>⬇ CSV / JSON</b> exports every round's results and decisions for grading.</li>
+    <li><b>📺 Projector view</b> is a read-only big-screen view with the live submission status, leaderboard and podium.</li>
+  </ul>
+  <p>Buttons are protected against double clicks and stale tabs, so a round can never be skipped or processed twice.</p>
+</section>
+
+<section class="card" id="logic">
+  <h2>15. Complete game logic</h2>
+  <p>This is the exact algorithm the server runs, from <code>engine.js</code>, the same file that powers the cost previews in your browser.</p>
+  <h3>Constants</h3>
+  <div class="formula">Grid rows A..J (A = best style), columns 1..10 (10 = best quality); START = J1 (demand 0)
+Starting accumulated profit = 5,000      Cost per cell moved = 200
+Max products per team = 20               Loyalty rate = 10% compounding
+Rounds = 8 (configurable 1-8)            Teams = up to 10</div>
+  <h3>Validation when a team submits</h3>
+  <div class="formula">for each action:
+  launch(cell):    cell valid and ≠ J1;   cost = 200 × dist(J1, cell)
+  move(#p, cell):  #p active, cell ≠ current cell, cell ≠ J1;  cost = 200 × dist(current, cell)
+  withdraw(#p):    #p active;  cost = penalty(#p)   (section 8)
+  each product can appear in at most one action
+reject if  products launched so far + new launches > 20
+reject if  total cost > accumulated profit
+reject if  no actions AND accumulated profit ≥ 200        ← compulsory move
+dist(a, b) = |row_a − row_b| + |col_a − col_b|            (no diagonals)</div>
+  <h3>Processing a round (all teams at the same time)</h3>
+  <div class="formula">1. For every team apply its decision (or nothing if it did not submit):
+     launch   → new product #(n+1) in cell, lifetime cost = launch cost, held = 0
+     move     → product changes cell, lifetime cost += move cost, held = 0
+     withdraw → product status = withdrawn (permanently), penalty charged
+2. count[cell] = number of active products in each cell (all teams)
+3. For every active product:
+     held   = 0 if launched or moved this round, else held + 1
+     bonus  = 1.10^held − 1
+     sales  = round( demand[cell] / count[cell] × (1 + bonus) )
+     lifetime sales += sales
+4. For every team:
+     sales  = Σ product sales
+     costs  = Σ positioning costs + Σ penalties
+     profit = sales − costs
+     accumulated profit += profit
+     market share = team sales / total market sales
+5. Rank teams by profit and by accumulated profit (ties share a rank),
+   compute the market totals and averages, the top 10 products and the news headlines.
+6. Save everything; every connected screen updates instantly.</div>
+  <h3>Demand table (points per cell)</h3>
+  <div id="demand-table"></div>
+</section>
+
+<section class="card" id="faq">
+  <h2>16. FAQ &amp; troubleshooting</h2>
+  <p><b>Do players need an account or Claude subscription?</b> No. Anyone with the link can play in a normal browser.</p>
+  <p><b>Our laptop refreshed or crashed. Did we lose everything?</b> No. Reopen the link. Your team stays logged in on that browser, and on a new laptop you just enter your team name and PIN.</p>
+  <p><b>Can two laptops play as the same team?</b> Yes. Use the same team name and PIN. Both see the same products, plan and submission.</p>
+  <p><b>Why is the Submit button disabled?</b> You need at least one move, and the total cost must fit your budget. Any errors are listed above the button.</p>
+  <p><b>Can we change our mind after submitting?</b> Yes. Click <span class="kbd">Edit decision</span> until the round is processed. If auto-process is on and you are the last team to submit, the round processes immediately.</p>
+  <p><b>The status shows "Reconnecting".</b> Your connection dropped. The page retries automatically every few seconds, and nothing is lost.</p>
+  <p><b>Can new teams join mid-game?</b> No. Joining is only possible in the lobby, so the game stays fair. Existing teams can always rejoin.</p>
+</section>
+
+<p class="small muted" style="text-align:center">Original game concept: Geoff Fripp (greatideasforteachingmarketing.com). Multiplayer edition with house rules: compulsory move each round, no removal of launched products, double withdrawal penalty.</p>
+</main>
+<script src="/engine.js"></script>
+<script>
+(function () {
+  var E = window.Engine;
+  function heat(d) { if (!d) return '#1a2440'; var t = Math.max(0, Math.min(1, Math.log(d / 50) / Math.log(30))); return 'hsl(' + (222 - t * 12) + ' ' + (22 + t * 18) + '% ' + (15 + t * 27) + '%)'; }
+  function table(valueFn, colorFn) {
+    var h = '<div class="table-wrap"><table class="grid10"><thead><tr><th></th>';
+    E.COLS.forEach(function (c) { h += '<th>' + c + '</th>'; });
+    h += '</tr></thead><tbody>';
+    E.ROWS.forEach(function (r, ri) {
+      h += '<tr><th>' + r + '</th>';
+      E.COLS.forEach(function (c, ci) {
+        var id = r + c, v = valueFn(id, ri, ci);
+        h += '<td class="' + (E.SEGMENTS[id] ? 's' : '') + '" title="' + id + (E.SEGMENTS[id] ? ' - ' + E.SEGMENTS[id] : '') + '" style="background:' + colorFn(id, ri, ci) + '">' + v + '</td>';
+      });
+      h += '</tr>';
+    });
+    return h + '</tbody></table></div>';
+  }
+  var demandHtml = table(function (id, r, c) { return id === 'J1' ? 'START' : E.DEMAND[r][c].toLocaleString('en-US'); }, function (id, r, c) { return heat(E.DEMAND[r][c]); });
+  document.getElementById('demand-map').innerHTML = demandHtml + '<p class="small muted">Rows: A = high style/look … J = basic style/look. Columns: 1 = low quality … 10 = high quality. Outlined cells are the four segment centres.</p>';
+  document.getElementById('demand-table').innerHTML = demandHtml;
+  document.getElementById('launch-map').innerHTML = table(function (id) { return id === 'J1' ? 'START' : (E.distance('J1', id) * 200).toLocaleString('en-US'); }, function (id) { var d = E.distance('J1', id); return 'hsl(25 60% ' + (12 + d * 1.6) + '%)'; });
+  var rows = '';
+  for (var k = 0; k <= 7; k++) rows += '<tr><td>' + (k === 0 ? 'New or repositioned' : 'Held ' + k + ' round' + (k > 1 ? 's' : '') + ' in a row') + '</td><td class="num">+' + (E.loyaltyBonus(k, 0.10) * 100).toFixed(1) + '%</td><td class="num">' + Math.round(500 * (1 + E.loyaltyBonus(k, 0.10))) + '</td></tr>';
+  document.getElementById('loyalty-table').innerHTML = '<div class="table-wrap"><table><thead><tr><th>Product status this round</th><th class="num">Loyalty bonus</th><th class="num">Sales alone in a 500 cell</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+})();
+</script>
+</body>
+</html>

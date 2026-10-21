@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Positioning Strategy Game</title>
+<meta name="description" content="Multiplayer marketing and positioning simulation game - up to 10 teams, 8 rounds, live results and leaderboard.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/"><span class="logo">🎯</span><span>Positioning Strategy Game</span></a>
+  <span class="spacer"></span>
+  <span id="topinfo" class="row"></span>
+  <a class="btn sm ghost" href="/how-to-play" target="_blank" rel="noopener">How to play</a>
+</header>
+<main id="app"><div class="waiting"><div class="spinner"></div><p class="muted">Loading...</p></div></main>
+<div id="toasts" class="toast-wrap"></div>
+<div id="tooltip" class="tooltip hidden"></div>
+<script src="/engine.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
